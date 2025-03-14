@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Yoplait GO mango pineapple",
+        "calories": 130,
+        "protein": 20,
+        "carbs": 8.75,
+        "fats": 1.25
+    },
+    {
+        "name": "Yoplait GO strawberry banana",
+        "calories": 127,
+        "protein": 20,
+        "carbs": 9.5,
+        "fats": 1.25
+    },
+    {
+        "name": "Monster Ultra Paradise",
+        "calories": 10,
+        "protein": 0,
+        "carbs": 3,
+        "fats": 0
+    }
+]
