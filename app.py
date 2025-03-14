@@ -4,6 +4,9 @@ import json
 import os
 from datetime import datetime
 
+# Folder where JSON files are stored
+JSON_FOLDER = "json"
+
 class MacroTrackerApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -20,20 +23,20 @@ class MacroTrackerApp(tk.Tk):
         style.map("TButton", background=[("active", "#555555")])
         style.configure("Treeview", background="#2e2e2e", fieldbackground="#2e2e2e", foreground="white")
 
-        # Load persistent data files
-        self.foods = self.load_data("foods.json")
-        self.drinks = self.load_data("drinks.json")
-        self.history = self.load_history("history.json")
-        self.profile_history = self.load_profile_history("profile_history.json")
-        self.profile_settings = self.load_profile_settings("profile_settings.json")
-        self.goals = self.load_goals("goals.json")  # persistent goals
-        self.saved_meals = self.load_meals("meals.json")  # persistent meals
+        # Load persistent data from JSON files in the JSON_FOLDER
+        self.foods = self.load_data(os.path.join(JSON_FOLDER, "foods.json"))
+        self.drinks = self.load_data(os.path.join(JSON_FOLDER, "drinks.json"))
+        self.history = self.load_history(os.path.join(JSON_FOLDER, "history.json"))
+        self.profile_history = self.load_profile_history(os.path.join(JSON_FOLDER, "profile_history.json"))
+        self.profile_settings = self.load_profile_settings(os.path.join(JSON_FOLDER, "profile_settings.json"))
+        self.goals = self.load_goals(os.path.join(JSON_FOLDER, "goals.json"))  # persistent goals
+        self.saved_meals = self.load_meals(os.path.join(JSON_FOLDER, "meals.json"))  # persistent saved meals
 
         # Load or initialize daily data (today's intake)
-        self.daily_data = self.load_daily_data("daily.json")
+        self.daily_data = self.load_daily_data(os.path.join(JSON_FOLDER, "daily.json"))
         today = datetime.now().strftime("%m/%d/%Y")
         if self.daily_data["date"] != today:
-            # Archive the previous day's data if any nonzero totals exist
+            # Archive previous day's data if nonzero totals exist
             if any(self.daily_data["totals"].values()):
                 record = {
                     "date": self.daily_data["date"],
@@ -47,11 +50,11 @@ class MacroTrackerApp(tk.Tk):
                     "fats_goal": self.goals["fats"]
                 }
                 self.history.append(record)
-                self.save_history()
+                self.save_history(os.path.join(JSON_FOLDER, "history.json"))
             # Reset daily data for the new day
             self.daily_data["date"] = today
             self.daily_data["totals"] = {"calories": 0, "protein": 0, "carbs": 0, "fats": 0}
-            self.save_daily_data()
+            self.save_daily_data(os.path.join(JSON_FOLDER, "daily.json"))
         self.daily_totals = self.daily_data["totals"]
 
         # Create Notebook (tabbed interface)
@@ -82,22 +85,20 @@ class MacroTrackerApp(tk.Tk):
         self.create_profile_tab()
 
     # ----- Daily Data Persistence -----
-    def load_daily_data(self, filename="daily.json"):
+    def load_daily_data(self, filename):
         if os.path.exists(filename):
             try:
                 with open(filename, "r") as f:
-                    data = json.load(f)
-                return data
+                    return json.load(f)
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to load daily data: {e}")
-                # Return fresh data if error occurs
                 return {"date": datetime.now().strftime("%m/%d/%Y"),
                         "totals": {"calories": 0, "protein": 0, "carbs": 0, "fats": 0}}
         else:
             return {"date": datetime.now().strftime("%m/%d/%Y"),
                     "totals": {"calories": 0, "protein": 0, "carbs": 0, "fats": 0}}
 
-    def save_daily_data(self, filename="daily.json"):
+    def save_daily_data(self, filename):
         try:
             with open(filename, "w") as f:
                 json.dump(self.daily_data, f, indent=4)
@@ -119,7 +120,7 @@ class MacroTrackerApp(tk.Tk):
     def load_history(self, filename):
         return self.load_data(filename)
 
-    def save_history(self, filename="history.json"):
+    def save_history(self, filename):
         try:
             with open(filename, "w") as f:
                 json.dump(self.history, f, indent=4)
@@ -129,7 +130,7 @@ class MacroTrackerApp(tk.Tk):
     def load_profile_history(self, filename):
         return self.load_data(filename)
 
-    def save_profile_history(self, filename="profile_history.json"):
+    def save_profile_history(self, filename):
         try:
             with open(filename, "w") as f:
                 json.dump(self.profile_history, f, indent=4)
@@ -147,14 +148,14 @@ class MacroTrackerApp(tk.Tk):
         else:
             return {}
 
-    def save_profile_settings(self, filename="profile_settings.json"):
+    def save_profile_settings(self, filename):
         try:
             with open(filename, "w") as f:
                 json.dump(self.profile_settings, f, indent=4)
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save profile settings: {e}")
 
-    def load_goals(self, filename="goals.json"):
+    def load_goals(self, filename):
         if os.path.exists(filename):
             try:
                 with open(filename, "r") as f:
@@ -165,14 +166,14 @@ class MacroTrackerApp(tk.Tk):
         else:
             return {"calories": 2000, "protein": 150, "carbs": 250, "fats": 70}
 
-    def save_goals_to_file(self, filename="goals.json"):
+    def save_goals_to_file(self, filename):
         try:
             with open(filename, "w") as f:
                 json.dump(self.goals, f, indent=4)
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save goals to {filename}: {e}")
 
-    def load_meals(self, filename="meals.json"):
+    def load_meals(self, filename):
         if os.path.exists(filename):
             try:
                 with open(filename, "r") as f:
@@ -183,7 +184,7 @@ class MacroTrackerApp(tk.Tk):
         else:
             return []
 
-    def save_meals_to_file(self, filename="meals.json"):
+    def save_meals_to_file(self, filename):
         try:
             with open(filename, "w") as f:
                 json.dump(self.saved_meals, f, indent=4)
@@ -205,7 +206,7 @@ class MacroTrackerApp(tk.Tk):
             entry.grid(row=row, column=1, padx=5, pady=5)
             self.goal_vars[macro] = var
             row += 1
-        save_button = ttk.Button(goals_frame, text="Save Goals", command=self.save_goals)
+        save_button = ttk.Button(goals_frame, text="Save Goals", command=lambda: self.save_goals_to_file(os.path.join(JSON_FOLDER, "goals.json")) or self.save_goals())
         save_button.grid(row=row, column=0, columnspan=2, pady=10)
         # Totals Section
         totals_frame = ttk.LabelFrame(frame, text="Today's Intake", padding=10)
@@ -229,7 +230,7 @@ class MacroTrackerApp(tk.Tk):
             except ValueError:
                 messagebox.showerror("Invalid Input", f"Please enter a valid number for {macro}.")
                 return
-        self.save_goals_to_file()
+        self.save_goals_to_file(os.path.join(JSON_FOLDER, "goals.json"))
         messagebox.showinfo("Goals Saved", "Daily goals updated and saved successfully.")
 
     def update_totals_display(self):
@@ -241,7 +242,7 @@ class MacroTrackerApp(tk.Tk):
             self.daily_totals[macro] += consumption.get(macro, 0)
             self.daily_data["totals"][macro] = self.daily_totals[macro]
         self.update_totals_display()
-        self.save_daily_data()
+        self.save_daily_data(os.path.join(JSON_FOLDER, "daily.json"))
 
     def new_day_reset(self):
         if sum(self.daily_totals.values()) == 0:
@@ -259,12 +260,12 @@ class MacroTrackerApp(tk.Tk):
             "fats_goal": self.goals["fats"]
         }
         self.history.append(record)
-        self.save_history()
+        self.save_history(os.path.join(JSON_FOLDER, "history.json"))
         # Reset daily totals
         self.daily_totals = {"calories": 0, "protein": 0, "carbs": 0, "fats": 0}
         self.daily_data["date"] = datetime.now().strftime("%m/%d/%Y")
         self.daily_data["totals"] = self.daily_totals
-        self.save_daily_data()
+        self.save_daily_data(os.path.join(JSON_FOLDER, "daily.json"))
         self.update_totals_display()
         messagebox.showinfo("New Day", "Daily totals have been reset for a new day.")
 
@@ -346,7 +347,7 @@ class MacroTrackerApp(tk.Tk):
     # ----- Meals Tab -----
     def create_meals_tab(self):
         frame = self.meals_tab
-        # New Meal Section
+        # Create New Meal Section
         new_meal_frame = ttk.LabelFrame(frame, text="Create New Meal", padding=10)
         new_meal_frame.pack(padx=10, pady=10, fill="x")
         ttk.Label(new_meal_frame, text="Meal Name:").grid(row=0, column=0, sticky="w", padx=5, pady=5)
@@ -355,7 +356,7 @@ class MacroTrackerApp(tk.Tk):
         meal_name_entry.grid(row=0, column=1, padx=5, pady=5)
         self.meal_builder_frame = ttk.Frame(new_meal_frame)
         self.meal_builder_frame.grid(row=1, column=0, columnspan=2, sticky="ew", padx=5, pady=5)
-        self.meal_rows = []  # temporary rows for meal creation
+        self.meal_rows = []
         add_food_button = ttk.Button(new_meal_frame, text="Add Food", command=self.add_meal_row)
         add_food_button.grid(row=2, column=0, padx=5, pady=5, sticky="w")
         save_meal_button = ttk.Button(new_meal_frame, text="Save Meal", command=self.save_current_meal)
@@ -413,7 +414,7 @@ class MacroTrackerApp(tk.Tk):
             items.append({"food": food, "quantity": qty})
         meal = {"name": meal_name, "items": items}
         self.saved_meals.append(meal)
-        self.save_meals_to_file()
+        self.save_meals_to_file(os.path.join(JSON_FOLDER, "meals.json"))
         messagebox.showinfo("Meal Saved", f"Meal '{meal_name}' saved successfully.")
         self.clear_meal_builder()
         self.update_saved_meals_display()
@@ -566,7 +567,7 @@ class MacroTrackerApp(tk.Tk):
             entry.grid(row=row, column=1, padx=5, pady=5)
             self.settings_vars[key] = var
             row += 1
-        save_settings_button = ttk.Button(settings_frame, text="Save Settings", command=self.save_profile_settings_ui)
+        save_settings_button = ttk.Button(settings_frame, text="Save Settings", command=lambda: self.save_profile_settings(os.path.join(JSON_FOLDER, "profile_settings.json")) or self.save_profile_settings_ui())
         save_settings_button.grid(row=row, column=0, columnspan=2, pady=10)
         dynamic_frame = ttk.LabelFrame(frame, text="Daily Update", padding=10)
         dynamic_frame.pack(padx=10, pady=10, fill="x")
@@ -603,7 +604,7 @@ class MacroTrackerApp(tk.Tk):
             return
         self.profile_settings["age"] = age
         self.profile_settings["height"] = height
-        self.save_profile_settings()
+        self.save_profile_settings(os.path.join(JSON_FOLDER, "profile_settings.json"))
         messagebox.showinfo("Settings Saved", "Profile settings saved successfully.")
 
     def record_profile_update(self):
@@ -620,7 +621,7 @@ class MacroTrackerApp(tk.Tk):
             "bodyfat": bodyfat if bodyfat is not None else ""
         }
         self.profile_history.append(record)
-        self.save_profile_history()
+        self.save_profile_history(os.path.join(JSON_FOLDER, "profile_history.json"))
         self.update_profile_tree()
         messagebox.showinfo("Update Recorded", "Profile update recorded successfully.")
 
