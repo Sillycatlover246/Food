@@ -1,9 +1,15 @@
 {
-    "date": "03/14/2025",
+    "date": "03/20/2025",
     "totals": {
-        "calories": 2400.0,
-        "protein": 69.5,
-        "carbs": 490.0,
-        "fats": 11.0
-    }
+        "calories": 691.9,
+        "protein": 53.55,
+        "carbs": 82.95,
+        "fats": 11.2
+    },
+    "events": [
+        "Ate 1.0 unit(s) of Bun",
+        "Ate 25.0g of Slices of semi-hard cheese 5% fat (Gilboa)",
+        "Ate 80.0g of Smoked beef shoulder Pastrami (Tirat Tzvi)",
+        "Drank 1 serving of Tnuva GO ice cafe"
+    ]
 }

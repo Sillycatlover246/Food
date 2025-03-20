@@ -15,12 +15,86 @@
         "fats": 1.4
     },
     {
+        "name": "Bun",
+        "per_unit": true,
+        "calories": 310,
+        "protein": 8.5,
+        "carbs": 53,
+        "fats": 2.3
+    },
+    {
+        "name": "Chicken Pullet (Pargit)",
+        "calories": 190,    
+        "protein": 28,
+        "carbs": 0,
+        "fats": 7.4
+    },
+    {
         "name": "Egg",
         "per_unit": true,
         "calories": 97,    
         "protein": 8.5,
         "carbs": 0.5,
         "fats": 6.6
+    },
+    {
+        "name": "Smoked beef shoulder Pastrami (Tirat Tzvi)",
+        "calories": 98,    
+        "protein": 17,
+        "carbs": 3,
+        "fats": 2
+    },
+    {
+        "name": "Turkey paprika Pastrami (Tirat Tzvi)",
+        "calories": 161,
+        "protein": 10,
+        "carbs": 10,
+        "fats": 9
+    },
+    {
+        "name": "Slices of semi-hard cheese 5% fat (Gilboa)",
+        "calories": 98,    
+        "protein": 17,
+        "carbs": 3,
+        "fats": 2
+    },
+    {
+        "name": "Light tuna chunks in olive oil (Filtuna)",
+        "calories": 222,    
+        "protein": 24,
+        "carbs": 1.5,
+        "fats": 13.3
+    },
+    {
+        "name": "Greek yogurt 6.5% (Danona)",
+        "per_unit": true,
+        "calories": 132,
+        "protein": 7.2,
+        "carbs": 5.5,
+        "fats": 8.5
+    },
+    {
+        "name": "McDonald's 9 piece chicken nugget",
+        "per_unit": true,
+        "calories": 395,
+        "protein": 31,
+        "carbs": 23,
+        "fats": 10.5
+    },
+    {
+        "name": "McDonald's 12 piece chicken nugget",
+        "per_unit": true,
+        "calories": 527,
+        "protein": 42,
+        "carbs": 31,
+        "fats": 10.5
+    },
+    {
+        "name": "McDonald's McChicken",
+        "per_unit": true,
+        "calories": 340,
+        "protein": 16,
+        "carbs": 38,
+        "fats": 9.1
     }
-
 ]

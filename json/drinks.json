@@ -14,6 +14,20 @@
         "fats": 1.25
     },
     {
+        "name": "Tnuva GO ice cafe",
+        "calories": 279,
+        "protein": 27.2,
+        "carbs": 26.8,
+        "fats": 6.8
+    },
+    {
+        "name": "Yotvata PRO vanilla",
+        "calories": 227.5,
+        "protein": 25.2,
+        "carbs": 19,
+        "fats": 5
+    },
+    {
         "name": "Monster Ultra Paradise",
         "calories": 10,
         "protein": 0,

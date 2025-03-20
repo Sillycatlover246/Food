@@ -1,6 +1,67 @@
 [
     {
-        "name": "Yummers",
+        "name": "Cheese & Shoulder beef toast (Pita)",
+        "items": [
+            {
+                "food": {
+                    "name": "Pita",
+                    "per_unit": true,
+                    "calories": 250,
+                    "protein": 8,
+                    "carbs": 50,
+                    "fats": 1.4
+                },
+                "quantity": 1.0
+            },
+            {
+                "food": {
+                    "name": "Smoked beef shoulder Pastrami (Tirat Tzvi)",
+                    "calories": 98,
+                    "protein": 17,
+                    "carbs": 3,
+                    "fats": 2
+                },
+                "quantity": 42.0
+            },
+            {
+                "food": {
+                    "name": "Slices of semi-hard cheese 5% fat (Gilboa)",
+                    "calories": 98,
+                    "protein": 17,
+                    "carbs": 3,
+                    "fats": 2
+                },
+                "quantity": 25.0
+            }
+        ]
+    },
+    {
+        "name": "Pargit & Rice",
+        "items": [
+            {
+                "food": {
+                    "name": "Rice",
+                    "calories": 130,
+                    "protein": 2.7,
+                    "carbs": 28,
+                    "fats": 0.3
+                },
+                "quantity": 150.0
+            },
+            {
+                "food": {
+                    "name": "Chicken Pullet (Pargit)",
+                    "calories": 190,
+                    "protein": 28,
+                    "carbs": 0,
+                    "fats": 7.4
+                },
+                "quantity": 250.0
+            }
+        ]
+    },
+    {
+        "name": "Egg dinner!",
         "items": [
             {
                 "food": {
@@ -12,6 +73,78 @@
                     "fats": 6.6
                 },
                 "quantity": 3.0
+            },
+            {
+                "food": {
+                    "name": "Smoked beef shoulder Pastrami (Tirat Tzvi)",
+                    "calories": 98,
+                    "protein": 17,
+                    "carbs": 3,
+                    "fats": 2
+                },
+                "quantity": 80.0
+            }
+        ]
+    },
+    {
+        "name": "Cheese & Tuna toast (Pita)",
+        "items": [
+            {
+                "food": {
+                    "name": "Pita",
+                    "per_unit": true,
+                    "calories": 250,
+                    "protein": 8,
+                    "carbs": 50,
+                    "fats": 1.4
+                },
+                "quantity": 1.0
+            },
+            {
+                "food": {
+                    "name": "Slices of semi-hard cheese 5% fat (Gilboa)",
+                    "calories": 98,
+                    "protein": 17,
+                    "carbs": 3,
+                    "fats": 2
+                },
+                "quantity": 25.0
+            },
+            {
+                "food": {
+                    "name": "Light tuna chunks in olive oil (Filtuna)",
+                    "calories": 222,
+                    "protein": 24,
+                    "carbs": 1.5,
+                    "fats": 13.3
+                },
+                "quantity": 100.0
+            }
+        ]
+    },
+    {
+        "name": "wow",
+        "items": [
+            {
+                "food": {
+                    "name": "Rice",
+                    "calories": 130,
+                    "protein": 2.7,
+                    "carbs": 28,
+                    "fats": 0.3
+                },
+                "quantity": 300.0
+            },
+            {
+                "food": {
+                    "name": "Pita",
+                    "per_unit": true,
+                    "calories": 250,
+                    "protein": 8,
+                    "carbs": 50,
+                    "fats": 1.4
+                },
+                "quantity": 4.0
             }
         ]
     }
