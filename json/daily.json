@@ -1,15 +1,19 @@
 {
-    "date": "03/20/2025",
+    "date": "03/22/2025",
     "totals": {
-        "calories": 691.9,
-        "protein": 53.55,
-        "carbs": 82.95,
-        "fats": 11.2
+        "calories": 1593.1999999999998,
+        "protein": 142.718,
+        "carbs": 129.19,
+        "fats": 50.172
     },
     "events": [
-        "Ate 1.0 unit(s) of Bun",
-        "Ate 25.0g of Slices of semi-hard cheese 5% fat (Gilboa)",
-        "Ate 80.0g of Smoked beef shoulder Pastrami (Tirat Tzvi)",
-        "Drank 1 serving of Tnuva GO ice cafe"
+        "Ate 84.0g of Halla",
+        "Ate 20.0g of Symphonia cheese 5% (Caramalized onion)",
+        "Drank 1 serving of Tnuva GO vanilla",
+        "Ate 3.0 unit(s) of Egg",
+        "Ate 30.0g of Smoked beef shoulder Pastrami (Tirat Tzvi)",
+        "Ate 34.0g of Halla",
+        "Ate 150.0g of Rice",
+        "Ate 250.0g of Chicken Pullet (Pargit)"
     ]
 }

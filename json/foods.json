@@ -23,6 +23,13 @@
         "fats": 2.3
     },
     {
+        "name": "Halla",
+        "calories": 300,
+        "protein": 9.6,
+        "carbs": 56.5,
+        "fats": 2.9
+    },
+    {
         "name": "Chicken Pullet (Pargit)",
         "calories": 190,    
         "protein": 28,
@@ -57,6 +64,13 @@
         "protein": 17,
         "carbs": 3,
         "fats": 2
+    },
+    {
+        "name": "Symphonia cheese 5% (Caramalized onion)",
+        "calories": 109,
+        "protein": 8.7,
+        "carbs": 5.6,
+        "fats": 5
     },
     {
         "name": "Light tuna chunks in olive oil (Filtuna)",
