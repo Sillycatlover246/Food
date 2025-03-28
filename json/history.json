@@ -86,5 +86,27 @@
         "protein_goal": 180.0,
         "carbs_goal": 239.0,
         "fats_goal": 54.0
+    },
+    {
+        "date": "03/22/2025",
+        "calories": 1593.2,
+        "protein": 142.7,
+        "carbs": 129.2,
+        "fats": 50.2,
+        "calories_goal": 2112.0,
+        "protein_goal": 180.0,
+        "carbs_goal": 239.0,
+        "fats_goal": 54.0
+    },
+    {
+        "date": "03/23/2025",
+        "calories": 410.5,
+        "protein": 31.2,
+        "carbs": 41.5,
+        "fats": 12.8,
+        "calories_goal": 2295,
+        "protein_goal": 200,
+        "carbs_goal": 250,
+        "fats_goal": 55
     }
 ]

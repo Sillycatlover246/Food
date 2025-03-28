@@ -1,10 +1,24 @@
 [
     {
-        "name": "Rice",
-        "calories": 130,    
-        "protein": 2.7,
-        "carbs": 28,
-        "fats": 0.3
+        "name": "Round rice, cooked (Sugat)",
+        "calories": 163,    
+        "protein": 2.2,
+        "carbs": 23,
+        "fats": 1
+    },
+    {
+        "name": "Classic basmati rice, cooked (Sugat)",
+        "calories": 118,    
+        "protein": 2.9,
+        "carbs": 26,
+        "fats": 1
+    },
+    {
+        "name": "Classic persian rice, cooked (Sugat)",
+        "calories": 157,    
+        "protein": 2.2,
+        "carbs": 22,
+        "fats": 1
     },
     {
         "name": "Pita",
@@ -80,6 +94,27 @@
         "fats": 13.3
     },
     {
+        "name": "Light tuna chunks in salt water (Filtuna)",
+        "calories": 98,    
+        "protein": 23,
+        "carbs": 0.1,
+        "fats": 0.5
+    },
+    {
+        "name": "Light tuna chunks in olive oil (Starkist)",
+        "calories": 213,    
+        "protein": 24,
+        "carbs": 0,
+        "fats": 13
+    },
+    {
+        "name": "Light tuna chunks in water (Starkist)",
+        "calories": 104,    
+        "protein": 24.8,
+        "carbs": 0,
+        "fats": 0.6
+    },
+    {
         "name": "Greek yogurt 6.5% (Danona)",
         "per_unit": true,
         "calories": 132,
@@ -110,5 +145,13 @@
         "protein": 16,
         "carbs": 38,
         "fats": 9.1
+    },
+    {
+        "name": "Chocolate flavored muffin cakes (Gidron)",
+        "per_unit": true,
+        "calories": 156,
+        "protein": 2,
+        "carbs": 20,
+        "fats": 7
     }
 ]
